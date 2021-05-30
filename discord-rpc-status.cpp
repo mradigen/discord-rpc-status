@@ -7,7 +7,7 @@
 #include "discord_rpc.h"
 
 static const char* APPLICATION_ID = "847356917122334762";
-char arr[][100] = {
+char statuses[][100] = {
 	"procrastinating",
 	"programming",
 	"playing Minecraft",
@@ -26,7 +26,7 @@ char arr[][100] = {
 	"destroying Aarya at a block game",
 	"coding the next billion dollar app",
 	"writing status for you to read over here",
-	"time travelling"
+	"time travelling",
 	"looking for a better computer",
 	"contemplating on why Edge exists",
 	"being ADIGEN",
@@ -38,7 +38,7 @@ char arr[][100] = {
 	"meeting new people",
 	"making new friends",
 };
-int arrLength = sizeof(arr) / sizeof(arr[0]);
+int statusesLength = sizeof(statuses) / sizeof(statuses[0]);
 int timestamp = 0;
 int taskDuration = 10 + 1;
 int currentTime = time(0);
@@ -47,7 +47,7 @@ static void updateDiscordPresence(int p_status = 0) {
 	DiscordRichPresence discordPresence;
 	memset(&discordPresence, 0, sizeof(discordPresence));
 	discordPresence.state = "for the next";
-	discordPresence.details = arr[p_status];
+	discordPresence.details = statuses[p_status];
 	discordPresence.startTimestamp = time(0);
 	discordPresence.endTimestamp = time(0) + taskDuration;
 	discordPresence.largeImageKey = "adjn";
@@ -70,7 +70,7 @@ static void discordInit() {
 }
 
 static void statusLoop() {
-	updateDiscordPresence(rand() % arrLength);
+	updateDiscordPresence(rand() % statusesLength);
 
 #ifdef DISCORD_DISABLE_IO_THREAD
 		Discord_UpdateConnection();
