@@ -26,7 +26,9 @@ char arr[][100] = {
 	"destroying Aarya at a block game",
 	"coding the next billion dollar app",
 	"writing status for you to read over here",
+	"time travelling"
 	"looking for a better computer",
+	"contemplating on why Edge exists",
 	"being ADIGEN",
 	"being the ADIGEN you hate",
 	"stalking you",
