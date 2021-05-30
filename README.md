@@ -1,6 +1,6 @@
 # Discord-RPC-Status
 
-Discord-RPC-Status (or DRS for short) is a program that displays a random status message as a Rich Presence status on Discord.
+Discord-RPC-Status (or DRS for short) is a program that displays a random status message as a Rich Presence status on Discord. It does so by making use of [Discord's RPC API](https://github.com/discord/discord-rpc) (deprecated)
 
 ## Example
 
