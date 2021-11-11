@@ -15,13 +15,7 @@ char statuses[][100] = {
 	"wasting time on YouTube",
 	"dying",
 	"installing updates",
-	"having moodswings 1",
-	"having moodswings 2",
-	"having moodswings 3",
-	"having moodswings 4",
-	"having moodswings 5",
-	"having moodswings 6",
-	"having moodswings 7",
+	"having moodswings",
 	"annoying Aarya",
 	"destroying Aarya at a block game",
 	"coding the next billion dollar app",
@@ -70,15 +64,15 @@ static void discordInit() {
 }
 
 static void statusLoop() {
-	updateDiscordPresence(rand() % statusesLength);
+	while (true) {
+		updateDiscordPresence(rand() % statusesLength);
 
 #ifdef DISCORD_DISABLE_IO_THREAD
 		Discord_UpdateConnection();
 #endif
 		Discord_RunCallbacks();
-
-	sleep(taskDuration);
-	statusLoop();
+		sleep(taskDuration);
+	}
 }
 
 int main(int argc, char* argv[]) {
