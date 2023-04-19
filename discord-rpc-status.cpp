@@ -8,30 +8,31 @@
 
 static const char* APPLICATION_ID = "847356917122334762";
 char statuses[][100] = {
-	"procrastinating",
-	"programming",
-	"playing Minecraft",
+	"ricing",
+	"ricing picom",
+	"ricing polybar",
+	"pissed at how bad ChatGPT is at code",
 	"looking for techies",
-	"wasting time on YouTube",
-	"dying",
 	"installing updates",
-	"having moodswings",
-	"annoying Aarya",
-	"destroying Aarya at a block game",
+	"being a Linux advocate",
+
 	"coding the next billion dollar app",
+	"programming",
+	"cursing about JavaScript",
+
 	"writing status for you to read over here",
 	"time travelling",
-	"looking for a better computer",
-	"contemplating on why Edge exists",
 	"being ADIGEN",
-	"being the ADIGEN you hate",
-	"stalking you",
-	"crushing on you",
-	"being a Linux advocate",
-	"cursing about JavaScript",
 	"meeting new people",
 	"making new friends",
+	"waiting for DMs",
+
+	"playing Minecraft",
+	"playing War Thunder",
+	"looking for SMP players",
+	"sad that no one reads these anymore 🥲",
 };
+
 int statusesLength = sizeof(statuses) / sizeof(statuses[0]);
 int timestamp = 0;
 int taskDuration = 10 + 1;
@@ -66,6 +67,7 @@ static void discordInit() {
 static void statusLoop() {
 	while (true) {
 		updateDiscordPresence(rand() % statusesLength);
+		//updateDiscordPresence(6);
 
 #ifdef DISCORD_DISABLE_IO_THREAD
 		Discord_UpdateConnection();
@@ -76,6 +78,7 @@ static void statusLoop() {
 }
 
 int main(int argc, char* argv[]) {
+	srand(time(0));
 	discordInit();
 
 	statusLoop();
